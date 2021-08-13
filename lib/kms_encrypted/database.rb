@@ -57,7 +57,7 @@ module KmsEncrypted
 
     def evaluate_option(key)
       opt = options[key]
-      opt = record.instance_exec(&opt) if opt.respond_to?(:call)
+      opt = record.instance_exec(@record, &opt) if opt.respond_to?(:call)
       opt
     end
   end
